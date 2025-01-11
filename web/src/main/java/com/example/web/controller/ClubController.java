@@ -42,7 +42,7 @@ public class ClubController {
         model.addAttribute("club", club);
         return "clubs-create";
     }
-    @GetMapping("/clubs/{clubId/delete}")
+    @GetMapping("/clubs/{clubId}/delete")
     public String deleteClub(@PathVariable("clubId") Long clubId) {
         clubService.delete(clubId);
         return "redirect:/clubs";

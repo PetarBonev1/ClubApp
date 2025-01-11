@@ -2,16 +2,13 @@ package com.example.web.models;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
+
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Data
-@Builder(toBuilder = true)
+@Builder
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,7 +28,7 @@ public class Event {
     private LocalDateTime updatedOn;
 
     @ManyToOne
-    @JoinColumn(name = "club_id",nullable = false)
+    @JoinColumn(name = "club_id", nullable = false)
     private Club club;
 
 
