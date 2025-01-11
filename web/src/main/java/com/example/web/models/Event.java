@@ -1,0 +1,38 @@
+package com.example.web.models;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
+
+@Data
+@Builder(toBuilder = true)
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class Event {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
+    private String type;
+    private String photoUrl;
+    @CreatedDate
+    private LocalDateTime createdOn;
+    @UpdateTimestamp
+    private LocalDateTime updatedOn;
+
+    @ManyToOne
+    @JoinColumn(name = "club_id",nullable = false)
+    private Club club;
+
+
+}
